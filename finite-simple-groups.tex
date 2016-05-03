@@ -23,24 +23,46 @@
 Since $\mathbb{Z}_p$ has $p$ elements, by LaGrange's Theorem all subgroups of $\mathbb{Z}_p$ have order dividing $p$. Since $p$ is prime, the only subgroups of $\mathbb{Z}_p$ are $\mathbb{Z}_p$ and $\{0\}$. Therefore $\mathbb{Z}_p$ has no nontrivial proper subgroups, so it is simple.
 \end{proof}
 
-\begin{theorem}If G is a simple nontrivial abelian group, then $G \cong \mathbb{Z}_p$ from some prime $p$.
+\begin{theorem}
+   If G is a simple nontrivial abelian group, then $G \cong \mathbb{Z}_p$ from some prime $p$.
 \end{theorem}
 \begin{proof}
-Consider $x \in G$, $x \neq e$. Then $\{ e \} \neq \langle x \rangle \le G$. $G$ is abelian so $\langle x \rangle \triangleleft G$. Then since $G$ is simple, $\langle x \rangle = G$. If $|\langle x \rangle| = \infty$, then $\langle x \rangle < \langle x^2 \rangle \leq G$, which contradicts $\langle x \rangle = G$. Thus If $|\langle x \rangle| = p$ for some finite $p$. Therefore $G \cong \mathbb{Z}_p$. Suppose $p$ is composite, that is $p = m n$, $m > 1, n > 1$. Then $Z_n \leq Z_p \cong G$, so G has a nontrivial proper subgroup. But since $G$ is abelian, this contradicts the supposition that $G$ is simple. Therefore $p$ must be prime.
+   Consider $x \in G$, $x \neq e$. Then $\{ e \} \neq \langle x \rangle \le G$. $G$ is abelian so $\langle x \rangle \triangleleft G$. Then since $G$ is simple, $\langle x \rangle = G$. If $|\langle x \rangle| = \infty$, then $\langle x \rangle < \langle x^2 \rangle \leq G$, which contradicts $\langle x \rangle = G$. Thus If $|\langle x \rangle| = p$ for some finite $p$. Therefore $G \cong \mathbb{Z}_p$. Suppose $p$ is composite, that is $p = m n$, $m > 1, n > 1$. Then $Z_n \leq Z_p \cong G$, so G has a nontrivial proper subgroup. But since $G$ is abelian, this contradicts the supposition that $G$ is simple. Therefore $p$ must be prime.
 \end{proof}
 
 \begin{theorem}For $n \ge 3$, $A_n$ is exactly the set of products of 3-cycles on $n$ letters.
 \end{theorem}
 \begin{proof}~
 \begin{enumerate}
-\item[$\Leftarrow$] Let $\sigma = \sigma_1 \sigma_2 ... \sigma_k$ be a product of 3-cycles. Since each $\sigma_i$ is even, $\sigma$ is even. So $\sigma \in A_n$.
-\item[$\Rightarrow$] Let $\sigma \in A_n$. Write $\sigma$ as a composition of transpositions. By definition of $A_n$, there are an even number of transpositions. $\sigma = (a_1\ b_1)(c_1\ d_1)...(a_k\ b_k)(c_k\ d_k)$. Consider $(a_i\ b_i)(c_i\ d_i)$. Since $(a_i\ b_i)$ and $(c_i\ d_i)$ are transpositions, it must be the case that $a_i \ne b_i$ and $c_i \ne d_i$. If $a_i, b_i, c_i, d_i$ are all distinct, then $(a_i\ b_i)(c_i\ d_i) = (a_i\ b_i\ c_i)(b_i\ c_i\ d_i)$. If $a_i, b_i, c_i, d_i$ contain one duplicate letter, without loss of generality (or by relabeling) suppose $a_i = c_i$. Then $(a_i\ b_i)(a_i\ d_i) = (a_i\ d_i\ b_i)$. If $a_i, b_i, c_i, d_i$ contain two duplicate letters, then $(a_i\ b_i)(a_i\ b_i) = ()$. Thus each pair of transpositions in $\sigma$ can be replaced by a product of 3-cycles. Therefore $\sigma$ is a product of 3-cycles.
+\item[$\Leftarrow$]
+   Let $\sigma = \sigma_1 \sigma_2 ... \sigma_k$ be a product of 3-cycles. Since each $\sigma_i$ is even, $\sigma$ is even. So $\sigma \in A_n$.
+\item[$\Rightarrow$]
+   Let $\sigma \in A_n$. Write $\sigma$ as a product of transpositions. Since $\sigma$ is even, $\sigma=(a_1\ b_1)(c_1\ d_1)...(a_k\ b_k)(c_k\ d_k)$. Consider $(a_i\ b_i)(c_i\ d_i)$. Since $(a_i\ b_i)$ and $(c_i\ d_i)$ are transpositions, it must be the case that $a_i \ne b_i$ and $c_i \ne d_i$. If $a_i, b_i, c_i, d_i$ are all distinct, then $(a_i\ b_i)(c_i\ d_i) = (a_i\ b_i\ c_i)(b_i\ c_i\ d_i)$. If $a_i, b_i, c_i, d_i$ contain one duplicate letter, without loss of generality (or by relabeling) suppose $a_i = c_i$. Then $(a_i\ b_i)(a_i\ d_i) = (a_i\ d_i\ b_i)$. If $a_i, b_i, c_i, d_i$ contain two duplicate letters, then $(a_i\ b_i)(a_i\ b_i) = ()$. Thus each pair of transpositions in $\sigma$ can be replaced by a product of 3-cycles. Therefore $\sigma$ is a product of 3-cycles.
 \end{enumerate}
 \end{proof}
 
-\begin{theorem} For every pair of three cycles $(a\ b\ c), (d\ e\ f) \in A_n$, there exists a $s \in A_n$ such that $s (a\ b\ c) s^{-1} = (d\ e\ f)$.
+\begin{theorem}
+   For every pair of three cycles $c_1, c_2 \in A_n$, there exists a $s \in A_n$ such that $s c_1 s^{-1} = c_2$.
 \end{theorem}
 \begin{proof}
+Let $c_1 = (a\ b\ c)$. Proceed by cases on the number of letters shared by $c_1$ and $c_2$.
+\begin{description}
+   \item[Case 1:]$c_2$ shares no letters with $c_1$.
+   Then $c_2 = (d\ e\ f)$ and $a, b, c, d, e, f$ are all distinct. Let $s = (d\ e)(e\ f)(b\ d)(a\ e) \in A_n$. Then $s c_1 s^{-1} = (d\ e)(e\ f)(b\ d)(a\ e)(a\ b\ c)(a\ e)(b\ d)(e\ f)(d\ e) = (d\ e\ f) = c_2$.
+   \item[Case 2:]$c_2$ shares one letter with $c_1$.
+   Relabel so that $c_2 = (a\ d\ e)$. Let $s = (b\ d)(c\ e) \in A_n$. Then $s c_1 s^{-1} = (b\ d)(c\ e)(a\ b\ c)(c\ e)(b\ d) = (a\ d\ e) = c_2$.
+   \item[Case 3:]$c_2$ shares two letters with $c_1$.
+   Relabel so that $c_2 = (a\ b\ d)$. Let $s = (c\ d)(d\ e) \in A_n$. Then $s c_1 s^{-1} = (c\ d)(d\ e)(a\ b\ c)(d\ e)(c\ d) = (a\ b\ d) = c_2$.
+   \item[Case 4:]$c_2$ shares three letters with $c_1$.
+   Then $c_2 = c_1$. Let $s = () \in A_n$. Then $() c_1 ()^{-1} = c_1 = c_2$.
+\end{description}
+\end{proof}
+
+\begin{theorem}
+   $A_5$ is simple.
+\end{theorem}
+\begin{proof}
+   Suppose $A_5$ has a nontrivial proper normal subgroup $N \triangleleft A_5$.
 \end{proof}
 
 \section{Introduction 5 lines to max 1/2 page}
