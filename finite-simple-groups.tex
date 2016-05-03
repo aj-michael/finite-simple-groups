@@ -19,6 +19,59 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{definition}{Definition}
 
+\begin{theorem}
+All of the following groups are simple and every finite simple group is isomorphic to one of the following:
+\begin{enumerate}
+	\item
+	A cyclic group $Z_p$ of prime order $p$
+	\item
+	An alternating group $A_n$ for $n \ge 5$
+	\item
+	A classical group for $q$ a prime-power:
+	\begin{itemize}
+		\item
+		Linear: $PSL_n(q)$, $n \ge 2$, except $PSL_2(2)$ and $PSL_2(3)$
+		\item
+		Unitary: $PSU_n(q)$, $n \ge 3$, except $PSU_3(2)$
+		\item
+		Symplectic: $PSp_{2n}(q)$, $n \ge 2$, except $PSp_4(2)$
+		\item
+		Orthogonal: $P\Omega_{2n+1}(q)$, $n \ge 3$, $q$ odd\\
+		$P\Omega^+_{2n}(q)$, $n \ge 4$\\
+		$P\Omega^-_{2n}(q)$, $n \ge 4$
+	\end{itemize}
+	\item
+	An exceptional group of Lie Type for $q$ a prime-power:
+	\begin{itemize}
+		\item $G_2(q)$, $q \ge 3$
+		\item $F_4(q)$
+		\item $E_6(q)$
+		\item ${}^2E_6(q)$
+		\item ${}^3D_4(q)$
+		\item $E_7(q)$
+		\item $E_8(q)$
+		\item ${}^2B_2(2^{2n+1})$, $n \ge 1$
+		\item ${}^2G_2(3^{2n+1})$, $n \ge 1$
+		\item ${}^2F_4(2^{2n+1})$, $n \ge 1$
+	\end{itemize}
+	or the Tits group ${}^2F_4(2)'$.
+	\item
+	One of the 26 sporadic simple groups:
+	\begin{itemize}
+		\item
+		The Mathieu groups $M_{11}, M_{12}, M_{22}, M_{23}, M_{24}$
+		\item
+		The Leech lattice groups $Co_1, Co_2, Co_3, McL, HS, Suz, J_2$
+		\item
+		The Fischer groups $Fi_{22}, Fi_{23}, Fi'_{24}$
+		\item
+		The monstrous groups $\mathbb{M}, \mathbb{B}, Th, HB, He$
+		\item
+		The pariahs $J_1, J_3, J_4, O'N, Ly, Ru$.
+	\end{itemize}
+\end{enumerate}
+\end{theorem}
+
 \begin{theorem}For prime $p$, $\mathbb{Z}_p$ is simple.
 \end{theorem}
 \begin{proof}
@@ -93,9 +146,18 @@ Suppose $A_5$ has a nontrivial normal subgroup $N \triangleleft A_5$. By Lemma \
 
 \begin{lemma}
 \label{fixedpointlemma}
-For $n \ge 5$, if $\sigma \in A_n$, $\sigma \ne ()$, then there exists $\sigma' \in A_n$, $\sigma \ne \sigma'$ such that for some $i \in \{1, ..., n\}$, $\sigma(i) = \sigma'(i)$.
+For $n \ge 5$, if $\sigma \in A_n$, $\sigma \ne ()$, then there exists $\sigma' \in A_n$, $\sigma' \ne \sigma$ conjugate to $\sigma$ such that for some $i \in \{1, ..., n\}$, $\sigma(i) = \sigma'(i)$.
 \end{lemma}
 \begin{proof}
+Let $\sigma \in A_n$, $\sigma \ne ()$. Write $\sigma$ as the product of disjoint cycles and let $r$ be the length of the longest disjoint cycle in $\sigma$. Since $\sigma \ne ()$, $r \ge 2$. If $r = 2$, then $\sigma$ is the product of a non-zero even number of disjoint transpositions. Proceed by cases.
+\begin{description}
+	\item[Case 1:]$r = 2$ and $\sigma$ is the product of two disjoint transpositions.
+	Then $\sigma = (a\ b)(c\ d)$. Let $\alpha = (a\ c\ b)$ and $\sigma' = \alpha \sigma \alpha^{-1} = (a\ c\ b)(a\ b)(c\ d)(a\ b\ c) = (a\ c)(b\ d)$. Since $n \ge 5$, there exists $e \notin \{a, b, c, d\}$. So $\sigma \ne \sigma'$ and $\sigma(e) = \sigma'(e) = e$.
+	\item[Case 2:]$r = 2$ and $\sigma$ is the product of more than two disjoint transpositions.
+	Then write $\sigma = (a\ b)(c\ d)(e\ f)\pi$ where $\pi$ is a permutation that fixes $a, b, c, d, e, f$. Let $\alpha = (a\ b)(c\ e)$ and $\sigma' = \alpha \sigma \alpha^{-1}$. Then $\sigma' = (a\ b)(c\ e)(a\ b)(c\ d)(e\ f)\pi(a\ b)(c\ e) = (a\ b)(c\ f)(d\ e)\pi$. So $\sigma \ne \sigma'$ and $\sigma(a) = \sigma'(a) = b$.
+	\item[Case 3:]$r > 2$.
+	Then with relabeling, $\sigma = (1\ 2\ 3\ ...\ r)\pi$ where $\pi$ is a permutation that fixes $1$ through $r$. Let $\alpha = (3\ 4\ 5)$ and $\sigma' = \alpha \sigma \alpha^{-1} = (3\ 4\ 5)(1\ 2\ 3\ ...\ r)\pi(3\ 5\ 4)$. $\sigma(2) = 3$ and $\sigma'(2) = 4$ so $\sigma \ne \sigma'$ and $\sigma(1) = \sigma'(1) = 2$.
+\end{description}
 % TODO: Write this proof
 \end{proof}
 
@@ -109,125 +171,6 @@ Induction hypothesis: Suppose $A_{k-1}$ is simple. \\
 Now consider $A_k$. For $i \in \{1, ..., k\}$ let $H_i = \{\sigma \in A_k\ |\ \sigma(i) = i\}$. Then $H_i \cong A_{k-1}$. By the induction hypothesis, $H_i$ is simple.
 % TODO: Finish this proof
 \end{proof}
-
-\section{Introduction 5 lines to max 1/2 page}
-\label{sec:introduction}
-
-Explain the context of the experiment here. Why is condensed matter physics interesting or important?
-Optional things you could talk about (but don't have to -- this is up to you): transistors, computers, Quantum computers, fundamental knowledge (e.g. the resistance quantum).
-
-Briefly explain what methods you will use in the experiment, and what values you will extract from the data.
-
-For this section and all following sections: If you refer to an equation, previous result or theory that is not regarded as common knowledge, then cite the source (article or book) where you found this. For example, you can cite the Nano 3 Lecture notes \cite{nano3}.
-
-
-\section{Theory 2-3 pages}
-\label{sec:theory}
-
-\subsection{Two-dimensional Electron Gas}
-Here, explain the concept of a 2-DEG in GaAs/AlGaAs. What is a 2-DEG and why does it arise?
-
-\subsection{Hall Effect}
-Explain the classical Hall effect in your own words. What do I measure at $B=0$? And what happens if $B>0$? Which effect gives rise to the voltage drop in the vertical direction?
-
-\subsection{Quantum Hall Effect}
-Explain the IQHE in your own words. What does the density of states look like in a 2-DEG when $B=0$? What are Landau levels and how do they arise? What are edge states? What does the electron transport look like when you change the magnetic field? What do you expect to measure?
-
-\section{Experiment 1-2 pages}
-\subsection{Fabrication}
-Explain a step-by-step recipe for fabrication here. How long did you etch and why? What is an Ohmic contact?
-\subsection{Experimental set-up}
-Explain the experimental set-up here. Use a schematic picture (make it yourself in photoshop, paint, ...) to show how the components are connected. Briefly explain how a lock-in amplifier works.
-
-\section{Results and interpretation 2-3 pages}
-Show a graph of the longitudinal resistivity ($\rho_{xx}$) and Hall resistivity ($\rho_{xy}$) versus magnetic field, extracted from the raw data shown in figure \ref{fig:data}. You will have the link to the data in your absalon messages, if not e-mail Guen (guen@nbi.dk). Explain how you calculated these values, and refer to the theory.
-
-\begin{figure}
-\centering
-\caption{\label{fig:data}Raw (unprocessed) data. Replace this figure with the one you've made, that shows the resistivity.}
-\end{figure}
-
-\subsection{Classical regime}
-Calculate the sheet electron density $n_{s}$ and electron mobility $\mu$ from the data in the low-field regime, and refer to the theory in section \ref{sec:theory}. Explain how you retrieved the values from the data (did you use a linear fit?).
-Round values off to 1 or 2 significant digits: 8.1643 ~= 8.2. Also, 5e-6 is easier to read than 0.000005.
-
-!OBS: This part is optional (only if you have time left).
-Calculate the uncertainty as follows: \newline $u(f(x, y, z)) = \sqrt{(\frac{\delta f}{\delta{x}} u(x))^{2} + (\frac{\delta f}{\delta{y}} u(y))^{2} + (\frac{\delta f}{\delta{z}} u(z))^{2}}$, where $f$ is the calculated value ($n_{s}$ or $\mu$), $x, y, z$ are the variables taken from the measurement and $u(x)$ is the uncertainty in x (and so on).
-
-\subsection{Quantum regime}
-Calculate $n_{s}$ for the high-field regime.
-Show a graph of the longitudinal conductivity ($\rho_{xx}$) and Hall conductivity($\rho_{xy}$) \textbf{in units of the resistance quantum} ($\frac{h}{e^{2}}$), depicting the integer filling factors for each plateau.
-Show a graph of the plateau number versus its corresponding value of $1/B$. From this you can determine the slope, which you use to calculate the electron density.
-Again, calculate the uncertainty for your obtained values.
-
-\section{Discussion 1/2-1 page}
-Discuss your results. Compare the two values of $n_{s}$ that you've found in the previous section. Compare your results with literature and comment on the difference. If you didn't know the value of the resistance quantum, would you be able to deduce it from your measurements? If yes/no, why?
-
-\newpage
-\section{Some LaTeX tips}
-\label{sec:latex}
-\subsection{How to Include Figures}
-
-First you have to upload the image file (JPEG, PNG or PDF) from your computer to writeLaTeX using the upload link the project menu. Then use the includegraphics command to include it in your document. Use the figure environment and the caption command to add a number and a caption to your figure. See the code for Figure \ref{fig:frog} in this section for an example.
-
-\begin{figure}
-\centering
-\caption{\label{fig:frog}This frog was uploaded to writeLaTeX via the project menu.}
-\end{figure}
-
-\subsection{How to Make Tables}
-
-Use the table and tabular commands for basic tables --- see Table~\ref{tab:widgets}, for example.
-
-\begin{table}
-\centering
-\begin{tabular}{l|r}
-Item & Quantity \\\hline
-Widgets & 42 \\
-Gadgets & 13
-\end{tabular}
-\caption{\label{tab:widgets}An example table.}
-\end{table}
-
-\subsection{How to Write Mathematics}
-
-\LaTeX{} is great at typesetting mathematics. Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
-
-\begin{equation}
-S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
-      = \frac{1}{n}\sum_{i}^{n} X_i
-\label{eq:sn}
-\end{equation}
-
-denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
-
-The equation \ref{eq:sn} is very nice.
-
-\subsection{How to Make Sections and Subsections}
-
-Use section and subsection commands to organize your document. \LaTeX{} handles all the formatting and numbering automatically. Use ref and label commands for cross-references.
-
-\subsection{How to Make Lists}
-
-You can make lists with automatic numbering \dots
-
-\begin{enumerate}
-\item Like this,
-\item and like this.
-\end{enumerate}
-\dots or bullet points \dots
-\begin{itemize}
-\item Like this,
-\item and like this.
-\end{itemize}
-\dots or with words and descriptions \dots
-\begin{description}
-\item[Word] Definition
-\item[Concept] Explanation
-\item[Idea] Text
-\end{description}
-
-We hope you find write\LaTeX\ useful, and please let us know if you have any feedback using the help menu above.
 
 \begin{thebibliography}{9}
 \bibitem{nano3}
