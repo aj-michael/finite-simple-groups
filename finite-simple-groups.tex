@@ -29,13 +29,13 @@ A nontrivial group $G$ is simple if its only normal subgroups are the trivial gr
 
 I will focus specifically on finite simple groups. The study of finite simple groups is a rich and far-reaching subject. I will give a brief history of the subject, state the most significant major result and provide proofs of a few smaller results.
 
-The study of finite simple groups began with Galois around 1830 when he was studying the solutions by radicals to polynomial equations. Galois proved that the alternating groups on at least five letters are simple. In 1870, Camille Jordan constructed the projective special linear  groups $PSL_n(q)$ and proved they are simple for prime-power $q$. In 1872, Ludwig Sylow proved the Sylow Theorems which were among the first results used to classify finite simple groups. The Sylow Theorems are given below without proof. An example demonstrates how they are used to study finite simple groups.
+The study of finite simple groups began with Galois around 1830 when he was studying the solutions by radicals to polynomial equations \cite{gallian}. Galois proved that the alternating groups on at least five letters are simple. In 1870, Camille Jordan constructed the projective special linear  groups $PSL_n(q)$ and proved they are simple for prime-power $q$. In 1872, Ludwig Sylow proved the Sylow Theorems which were among the first results used to classify finite simple groups \cite{wilson}. The Sylow Theorems are given below without proof. An example demonstrates how they are used to study finite simple groups.
 
 \begin{definition}
 If $G$ is a group, $H_1 \le G$, $H_2 \le G$, $g \in G$ and $g H_1 g^{-1} = H_2$ then $H_1$ and $H_2$ are called conjugate.
 \end{definition}
 
-\begin{theorem}[Sylow Theorems]
+\begin{theorem}[Sylow Theorems \cite{wilson}]
 If $G$ is a finite group of order $p^k n$, $p$ prime and $p \nmid n$, then
 \begin{enumerate}
 	\item $G$ has subgroups of order $p^k$, called Sylow $p$-subgroups
@@ -69,7 +69,7 @@ Every finite group of odd order is solvable. As corollary, every non-abelian fin
 
 As a result of the Feit-Thompson Theorem, group theorists began to believe that all finite abelian groups had been found. This sparked a large-scale effort to prove a complete classification theorem for finite simple groups. Over the next two decades, about twenty new finite simple groups were found. In the 1980s, it was generally believed that all finite simple groups had been found and that a proof could be compiled. The resulting Classification Theorem for Finite Simple Group spans tens of thousands of pages across publications by over 100 authors.
 
-\begin{theorem}[Classification Theorem for Finite Simple Groups]
+\begin{theorem}[Classification Theorem for Finite Simple Groups (CTFSG) \cite{wilson}]
 The following groups are simple and every finite simple group is isomorphic to one of them:
 \begin{enumerate}
 	\item
@@ -106,7 +106,7 @@ The following groups are simple and every finite simple group is isomorphic to o
 	\end{itemize}
 	or the Tits group ${}^2F_4(2)'$.
 	\item
-	One of the 26 sporadic simple groups:
+	One of 26 sporadic simple groups:
 	\begin{itemize}
 		\item
 		The Mathieu groups $M_{11}, M_{12}, M_{22}, M_{23}, M_{24}$
@@ -122,6 +122,10 @@ The following groups are simple and every finite simple group is isomorphic to o
 \end{enumerate}
 \end{theorem}
 
+The scope of CTFSG is surprising to say the least. Simple groups are similar to prime numbers in the sense that groups can be factored into quotient groups in much the same way that integers are factored into their prime factorization. (Note that there is not necessarily a unique way to factor a group into quotient groups.) However there is no known analogous classification theorem for prime numbers. Imminent completion of the proof of CTFSG was announced around 1980. Gorenstein, Lyons and Solon have attempted to consolidate the entire proof into one publication. Six of the eleven proposed "volumes" of the proof have been published with the most recent being published in 2005 \cite{number6}. Solomon has estimated that the total proof will consist of approximately 5,000 pages. Due to the sheer size of the proof, I will only discuss a small part of it. I will start with the classification of finite abelian simple groups.
+
+
+
 \begin{theorem}For prime $p$, $\mathbb{Z}_p$ is simple.
 \end{theorem}
 \begin{proof}
@@ -134,6 +138,8 @@ If G is a simple nontrivial abelian group, then $G \cong \mathbb{Z}_p$ from some
 \begin{proof}
 Consider $x \in G$, $x \neq e$. Then $\{ e \} \neq \langle x \rangle \le G$. $G$ is abelian so $\langle x \rangle \triangleleft G$. Then since $G$ is simple, $\langle x \rangle = G$. If $|\langle x \rangle| = \infty$, then $\langle x \rangle < \langle x^2 \rangle \leq G$, which contradicts $\langle x \rangle = G$. Thus If $|\langle x \rangle| = p$ for some finite $p$. Therefore $G \cong \mathbb{Z}_p$. Suppose $p$ is composite, that is $p = m n$, $m > 1, n > 1$. Then $Z_n \leq Z_p \cong G$, so G has a nontrivial proper subgroup. But since $G$ is abelian, this contradicts the supposition that $G$ is simple. Therefore $p$ must be prime.
 \end{proof}
+
+Thus we have classified all finite abelian simple groups as exactly the groups $\mathbb{Z}_p$ for prime $p$. The classification for abelian groups is far simpler than for nonabelian groups. This is not surprising, as the Fundamental Theorem of Finite Abelian Groups states that all finite abelian groups are isomorphic to the direct product of prime-power cyclic groups. The direct product of two prime-power cyclic groups contains a subgroup isomorphic to one of the prime-power cyclic groups, so it is not simple. I will now show that the alternating groups on more than four letters are simple. The proof for $A_n$ is more complicated than that for $\mathbb{Z}_p$, so it is broken into multiple theorems.
 
 \begin{theorem}
 \label{generatethm}
@@ -218,14 +224,17 @@ By induction on $n$. \\
 Base case: $n = 5$. Proved as Theorem \ref{a5theorem}. \\
 Induction hypothesis: Suppose $A_{k-1}$ is simple for $k \ge 6$. \\
 Now consider $A_k$. Suppose $A_k$ has a nontrivial normal subgroup $N \triangleleft A_k$ and there exists $\sigma \in N$, $\sigma \ne ()$. By Lemma \ref{fixedpointlemma}, there exists $\sigma' \in A_k$ conjugate to $\sigma$ and $i \in \{1, ..., k\}$ such that $\sigma \ne \sigma'$ and $\sigma(i) = \sigma'(i)$. This implies that $\sigma^{-1} \sigma' \ne ()$. Since $N$ is normal, $\sigma' \in N$ and $N$ is closed so $\sigma^{-1} \sigma' \in N$. By multiplication by inverse on the left of $\sigma(i) = \sigma'(i)$, $(\sigma^{-1} \sigma')(i) = i$. Now let $H_i = \{s \in A_k\ |\ s(i) = i\} \le A_k$. Then $H_i \cong A_{k-1}$. By the induction hypothesis, $H_i$ is simple. So $\sigma^{-1} \sigma' \in H_i \cap N$. Since $H_i$ and $N$ are both normal subgroups of $A_k$, $H_i \cap N \triangleleft G$. $\sigma^{-1} \sigma' \in H_i \cap N$ and $H_i$ is simple so $H_i \cap N = H_i$. Thus $H_i \subseteq N$. Since $H_i \cong A_{k-1}$ and $k \ge 6$, $A_{k-1}$ contains a 3-cycle so $H$ contains a 3-cycle. Therefore $N$ contains a 3-cycle, $c_1 \in N$. Let $c_2 \in A_k$ be another 3-cycle. Then by Theorem \ref{conjugatetheorem} there exists $s \in A_k$ such that $s c_1 s^{-1} = c_2$. Then since $N$ is normal, $c_2 \in N$. So $N$ contains all 3-cycles in $A_k$. Then by Theorem \ref{generatethm} we have $N=A_k$. Therefore $A_k$ is simple.
-% TODO: Finish this proof
 \end{proof}
 
+% TODO: Insert conclusion
+
 \begin{thebibliography}{9}
-\bibitem{nano3}
-  K. Grove-Rasmussen og Jesper Nygård,
-  \emph{Kvantefænomener i Nanosystemer}.
-  Niels Bohr Institute \& Nano-Science Center, Københavns Universitet
+\bibitem{gallian}  
+  Gallian, Joseph A. \emph{Contemporary Abstract Algebra}. Boston, MA: Brooks/Cole Cengage Learning, 2013. Print.
+\bibitem{number6}
+  Gorenstein, Daniel, Richard Lyons, and Ronald Solomon. \emph{The Classification of the Finite Simple Groups Number 6}. Providence, RI: American Mathematical Society, 2005. Print.
+\bibitem{wilson}
+  Wilson, Robert. \emph{The Finite Simple Groups}. London New York: Springer, 2009. Print.
 
 \end{thebibliography}
 \end{document}
