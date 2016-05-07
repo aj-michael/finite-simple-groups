@@ -1,0 +1,12 @@
+*.log
+*.aux
+*.bdi
+*.snm
+*.bbl
+*.blg
+*.nav
+*.out
+*.gz
+*.toc
+tmp*
+*.dvi

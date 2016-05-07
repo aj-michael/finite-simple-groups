@@ -29,7 +29,7 @@ A nontrivial group $G$ is simple if its only normal subgroups are the trivial gr
 
 I will focus specifically on finite simple groups. The study of finite simple groups is a rich and far-reaching subject. I will give a brief history of the subject, state the most significant major result and provide proofs of a few smaller results.
 
-The study of finite simple groups began with Galois around 1830 when he was studying the solutions by radicals to polynomial equations \cite{gallian}. Galois proved that the alternating groups on at least five letters are simple. In 1870, Camille Jordan constructed the projective special linear  groups $PSL_n(q)$ and proved they are simple for prime-power $q$. In 1872, Ludwig Sylow proved the Sylow Theorems which were among the first results used to classify finite simple groups \cite{wilson}. The Sylow Theorems are given below without proof. An example demonstrates how they are used to study finite simple groups.
+The study of finite simple groups began with Galois around 1830 when he was studying the solutions by radicals to polynomial equations \cite{gallian}. Galois proved that the alternating groups on at least five letters are simple. In 1870, Camille Jordan constructed the projective special linear  groups $PSL_n(q)$ and proved they are simple for prime-power $q$. In 1872, Ludwig Sylow proved the Sylow Theorems which were among the first results used to classify finite simple groups \cite{wilson}. The Sylow Theorems are given below without proof. An example demonstrates how they can be used to study finite simple groups.
 
 \begin{definition}
 If $G$ is a group, $H_1 \le G$, $H_2 \le G$, $g \in G$ and $g H_1 g^{-1} = H_2$ then $H_1$ and $H_2$ are called conjugate.
@@ -46,8 +46,9 @@ If $G$ is a finite group of order $p^k n$, $p$ prime and $p \nmid n$, then
 
 \begin{theorem}
 \label{unprovedtheorem}
-If $G$ is a finite group and $S$ is a Sylow $p$-subgroup, $S$ is normal in $G$ if and only if it is the unique Sylow $p$-subgroup.
+If $G$ is a finite group and $S$ is a Sylow $p$-subgroup, $S$ is normal in $G$ if and only if it is the unique Sylow $p$-subgroup. \cite{wilson}
 \end{theorem}
+\pagebreak
 \begin{proof}~
 \begin{enumerate}
 \item[$\Rightarrow$]
@@ -61,13 +62,7 @@ Suppose $S$ is the unique Sylow $p$-subgroup. Let $g \in G$. Note that $|g S g^{
 Let $G$ be a group of order $84 = 2^2 \cdot 3 \cdot 7$. Then by the third Sylow Theorem, $s_7 \mid 12$. So $s_7 \in \{1, 2, 3, 4, 6, 12\}$. Also, $s_7 \equiv 1 \mod 7$, so $s_7 = 1$. Then by Theorem \ref{unprovedtheorem}, the unique Sylow 7-subgroup is normal in $G$. Therefore there are no simple groups of order 84.
 \end{example}
 
-As seen in the example above, the Sylow Theorems are useful for proving that all groups of specific orders have a nontrivial proper normal subgroup. In 1963, Walter Feit and John Thompson proved another result for ruling out orders of simple groups. It deals with solvable groups, which for the sake of brevity I will not define.
-
-\begin{theorem}[Feit-Thompson Theorem]
-Every finite group of odd order is solvable. As corollary, every non-abelian finite simple group has even order.
-\end{theorem}
-
-As a result of the Feit-Thompson Theorem, group theorists began to believe that all finite abelian groups had been found. This sparked a large-scale effort to prove a complete classification theorem for finite simple groups. Over the next two decades, about twenty new finite simple groups were found. In the 1980s, it was generally believed that all finite simple groups had been found and that a proof could be compiled. The resulting Classification Theorem for Finite Simple Group spans tens of thousands of pages across publications by over 100 authors.
+As seen in the example above, the Sylow Theorems are useful for proving that all groups of specific orders have a nontrivial proper normal subgroup. In 1892, Otto Hölder proved another remarkable result on the order of finite simple groups. Hölder proved that a non-abelian finite simple group must have order a product of at least four primes. In 1963, Walter Feit and John Thompson narrowed the search for the order of finite simple groups even more. The Feit-Thompson Theorem states that every finite group of odd order is solvable. As corollary, every non-abelian finite simple group has even order. At this point, group theorists began to believe that all finite abelian groups had been found \cite{wilson}. This sparked a large-scale effort to prove a complete classification theorem for finite simple groups. Over the next two decades, about twenty new finite simple groups were found. In the 1980s, it was generally believed that all finite simple groups had been found and that a proof could be compiled. The resulting Classification Theorem for Finite Simple Group spans tens of thousands of pages across publications by over 100 authors.
 
 \begin{theorem}[Classification Theorem for Finite Simple Groups (CTFSG) \cite{wilson}]
 The following groups are simple and every finite simple group is isomorphic to one of them:
@@ -93,18 +88,19 @@ The following groups are simple and every finite simple group is isomorphic to o
 	\item
 	An exceptional group of Lie Type for $q$ a prime-power:
 	\begin{itemize}
-		\item $G_2(q)$, $q \ge 3$
-		\item $F_4(q)$
-		\item $E_6(q)$
-		\item ${}^2E_6(q)$
-		\item ${}^3D_4(q)$
-		\item $E_7(q)$
-		\item $E_8(q)$
-		\item ${}^2B_2(2^{2n+1})$, $n \ge 1$
-		\item ${}^2G_2(3^{2n+1})$, $n \ge 1$
-		\item ${}^2F_4(2^{2n+1})$, $n \ge 1$
+		\item $G_2(q)$, $q \ge 3$ ;
+		$F_4(q)$;
+		$E_6(q)$;
+		${}^2E_6(q)$;
+		${}^3D_4(q)$;
+		$E_7(q)$;
+		$E_8(q)$
+		\item
+		${}^2B_2(2^{2n+1})$, $n \ge 1$;
+		${}^2G_2(3^{2n+1})$, $n \ge 1$;
+		${}^2F_4(2^{2n+1})$, $n \ge 1$
 	\end{itemize}
-	or the Tits group ${}^2F_4(2)'$.
+	or the Tits group ${}^2F_4(2)'$, which is closely related to a group of Lie Type
 	\item
 	One of 26 sporadic simple groups:
 	\begin{itemize}
@@ -139,7 +135,7 @@ If G is a simple nontrivial abelian group, then $G \cong \mathbb{Z}_p$ from some
 Consider $x \in G$, $x \neq e$. Then $\{ e \} \neq \langle x \rangle \le G$. $G$ is abelian so $\langle x \rangle \triangleleft G$. Then since $G$ is simple, $\langle x \rangle = G$. If $|\langle x \rangle| = \infty$, then $\langle x \rangle < \langle x^2 \rangle \leq G$, which contradicts $\langle x \rangle = G$. Thus If $|\langle x \rangle| = p$ for some finite $p$. Therefore $G \cong \mathbb{Z}_p$. Suppose $p$ is composite, that is $p = m n$, $m > 1, n > 1$. Then $Z_n \leq Z_p \cong G$, so G has a nontrivial proper subgroup. But since $G$ is abelian, this contradicts the supposition that $G$ is simple. Therefore $p$ must be prime.
 \end{proof}
 
-Thus we have classified all finite abelian simple groups as exactly the groups $\mathbb{Z}_p$ for prime $p$. The classification for abelian groups is far simpler than for nonabelian groups. This is not surprising, as the Fundamental Theorem of Finite Abelian Groups states that all finite abelian groups are isomorphic to the direct product of prime-power cyclic groups. The direct product of two prime-power cyclic groups contains a subgroup isomorphic to one of the prime-power cyclic groups, so it is not simple. I will now show that the alternating groups on more than four letters are simple. The proof for $A_n$ is more complicated than that for $\mathbb{Z}_p$, so it is broken into multiple theorems.
+Thus we have classified all finite abelian simple groups as exactly the groups $\mathbb{Z}_p$ for prime $p$. The classification for abelian groups is far simpler than for nonabelian groups. This is not surprising, as the Fundamental Theorem of Finite Abelian Groups states that all finite abelian groups are isomorphic to the direct product of prime-power cyclic groups. The direct product of two prime-power cyclic groups contains a subgroup isomorphic to one of the prime-power cyclic groups, so it is not simple. I will now show that the alternating groups on more than four letters are simple. The proof for $A_n$ is more complicated than that for $\mathbb{Z}_p$, so it is broken into multiple theorems, roughly following the proof in Dummit and Foote \cite{dummit}.
 
 \begin{theorem}
 \label{generatethm}
@@ -175,6 +171,8 @@ Let $c_1 = (a\ b\ c)$. Proceed by cases on the number of letters shared by $c_1$
    Then $c_2 = c_1$. Let $s = () \in A_n$. Then $() c_1 ()^{-1} = c_1 = c_2$.
 \end{description}
 \end{proof}
+
+The remaining proofs will rely on Theorems \ref{generatethm} and \ref{conjugatetheorem} to show that if $A_n$ has a nontrivial normal subgroup $N$, then $N = A_n$ so $A_n$ is normal. Theorem \ref{a5theorem} will show that $A_5$ is simple and will be used as a base case for Theorem \ref{antheorem}.
 
 \begin{lemma}
 \label{threecyclelemma}
@@ -217,6 +215,7 @@ Let $\sigma \in A_n$, $\sigma \ne ()$. Write $\sigma$ as the product of disjoint
 \end{proof}
 
 \begin{theorem}
+\label{antheorem}
 For $n \ge 5$, $A_n$ is simple.
 \end{theorem}
 \begin{proof}
@@ -226,11 +225,25 @@ Induction hypothesis: Suppose $A_{k-1}$ is simple for $k \ge 6$. \\
 Now consider $A_k$. Suppose $A_k$ has a nontrivial normal subgroup $N \triangleleft A_k$ and there exists $\sigma \in N$, $\sigma \ne ()$. By Lemma \ref{fixedpointlemma}, there exists $\sigma' \in A_k$ conjugate to $\sigma$ and $i \in \{1, ..., k\}$ such that $\sigma \ne \sigma'$ and $\sigma(i) = \sigma'(i)$. This implies that $\sigma^{-1} \sigma' \ne ()$. Since $N$ is normal, $\sigma' \in N$ and $N$ is closed so $\sigma^{-1} \sigma' \in N$. By multiplication by inverse on the left of $\sigma(i) = \sigma'(i)$, $(\sigma^{-1} \sigma')(i) = i$. Now let $H_i = \{s \in A_k\ |\ s(i) = i\} \le A_k$. Then $H_i \cong A_{k-1}$. By the induction hypothesis, $H_i$ is simple. So $\sigma^{-1} \sigma' \in H_i \cap N$. Since $H_i$ and $N$ are both normal subgroups of $A_k$, $H_i \cap N \triangleleft G$. $\sigma^{-1} \sigma' \in H_i \cap N$ and $H_i$ is simple so $H_i \cap N = H_i$. Thus $H_i \subseteq N$. Since $H_i \cong A_{k-1}$ and $k \ge 6$, $A_{k-1}$ contains a 3-cycle so $H$ contains a 3-cycle. Therefore $N$ contains a 3-cycle, $c_1 \in N$. Let $c_2 \in A_k$ be another 3-cycle. Then by Theorem \ref{conjugatetheorem} there exists $s \in A_k$ such that $s c_1 s^{-1} = c_2$. Then since $N$ is normal, $c_2 \in N$. So $N$ contains all 3-cycles in $A_k$. Then by Theorem \ref{generatethm} we have $N=A_k$. Therefore $A_k$ is simple.
 \end{proof}
 
-% TODO: Insert conclusion
+We have now classified all of the simple finite groups that are discussed in an introductory Abstract Algebra course. Many of the remaining groups require individual study and more background than $\mathbb{Z}_p$ and $A_n$. The majority of the non-abelian finite simple groups belong to the family of classical groups of Lie type. Each of these can be thought of as a specific group of matrices where the entries belong to a finite field of prime-power characteristic. The primary tool for proving the simplicity of the finite classical groups is Iwasawa's Lemma.
+
+\begin{lemma}[Iwasawa's Lemma \cite{wilson}]
+If $G$ is a finite perfect group, acting faithfully (that is, there is an injective homomorphism $G \rightarrow Sym(\Omega)$) and primitively on a set $\Omega$, such that the point stabilizer $H$ has a normal abelian subgroup $A$ whose conjugates generate $G$, then $G$ is simple.
+\end{lemma}
+
+\begin{definition}
+The special linear group $SL_n(q)$ is the set of $n \times n$ invertible linear maps with determinant 1. Let $Z \triangleleft SL_n(q)$ be the normal subgroup of scalar multiples of the identity matrix. Then the projective special linear group $PSL_n(q)$ is defined as the quotient group $PSL_n(q) = SL_n(q)/Z$.
+\end{definition}
+
+We can apply Iwasawa's Lemma to $PSL_n(q)$ by letting $SL_n(q)$ act on $\Omega = \{\text{one dimensional subspaces of } \mathbb{F}^n_q\}$. Then the kernel of the action of $SL_n(q)$ on $\Omega$ is $Z$ so $PSL_n(q) = SL_n(q)/Z$ acts faithfully on $\Omega$. With a few more definitions, checking the stabilizer and checking that $PSL_n(q)$ is perfect, it can be shown by Iwasawa's Lemma that $PSL_n(q)$ is simple for $n > 2$ and $q > 3$.
+
+The Classification Theorem for Finite Simple Groups is a monumental result in Group Theory both in terms of size and impact. There are many more interesting finite simple groups not discussed in this paper, many of which cannot be described succinctly.
 
 \begin{thebibliography}{9}
+\bibitem{dummit}
+  Dummit, David Steven., and Richard M. Foote. \emph{Abstract Algebra}. New Delhi: Wiley-India, 2004. Print.
 \bibitem{gallian}  
-  Gallian, Joseph A. \emph{Contemporary Abstract Algebra}. Boston, MA: Brooks/Cole Cengage Learning, 2013. Print.
+  Gallian, Joseph A. \emph{Contemporary Abstract Algebra}. Boston, MA: Brooks / Cole Cengage Learning, 2013. Print.
 \bibitem{number6}
   Gorenstein, Daniel, Richard Lyons, and Ronald Solomon. \emph{The Classification of the Finite Simple Groups Number 6}. Providence, RI: American Mathematical Society, 2005. Print.
 \bibitem{wilson}
