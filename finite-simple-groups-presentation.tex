@@ -1,7 +1,10 @@
 \documentclass{beamer}
 \usepackage{graphicx}
+\usepackage{grffile}
 \usepackage{mathtools}
 \usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{url}
 \usetheme{CambridgeUS}
 
 
@@ -11,257 +14,190 @@
 {Adam Michael}
 \institute[Rose-Hulman]
 {
-  Department of Mathematics\\
-  Rose-Hulman Institute of Technology
+	MA376 - Abstract Algebra\\
+	Department of Mathematics\\
+	Rose-Hulman Institute of Technology
 }
-\date[Febuarary 22, 2016] % (optional)
-{MA376 Abstract Algebra, 2016}
+\date[May 9, 2016]
+{May 9, 2016}
 \subject{Topology}
+
+\beamertemplatenavigationsymbolsempty
+
 
 \begin{document}
 \frame{\titlepage}
 
 \begin{frame}
-    \frametitle{Everything we want to talk about}
-    \begin{itemize}
-    	\item V - E + F = 2
-        \item $\chi(P) = V - E + F$
-        \item $\chi(X)=\sum_{\alpha}(-1)^{dim(\sigma_\alpha)}$
-        \item $2\pi\chi(X) = \int_M \kappa dA$
-        \item $\chi(M) = \sum_{i} index_{x_i}(v)$
-    \end{itemize}
+	\frametitle{Simple Groups}
+	\begin{definition}
+	A simple group is a nontrivial group with no normal subgroups aside from itself and the trivial group.
+	\end{definition}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Euler's Polyhedron Formula}
+	\frametitle{Galois Theory sparked the study of finite simple groups} 
+	\begin{definition}
+	A group $G$ is solvable if there is a chain of subgroups $\{e\} = G_0 \triangleleft G_1 \triangleleft ... \triangleleft G_k = G$ such that each $G_i / G_{i-1}$ is abelian \cite{gallian}.
+	\end{definition}
+	\begin{examples}
 	\begin{itemize}
-		\item V - E + F = 2
-		\item Discovered independently by Descartes (1630) and Euler (1750)
-		\item Euler's proof was only valid for convex solids
-		\item Prior to this point, very little math was done that did not involve measurement
-		\item $\chi = V - E + F$
+		\item
+		If $G$ is abelian, then $\{e\} \triangleleft G$, $G/\{e\}$ is abelian, so $G$ is solvable.
+		\item
+		$\{e\} \triangleleft A_3 \triangleleft S_3$, $A_3/ \{e\} \cong A_3 \cong \mathbb{Z}_3$, $S_3/A_3 \cong \mathbb{Z}_2$ so $S_3$ is solvable.
+		\item
+		If $G$ is a nonabelian simple group, then $G$ is not solvable.
 	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Euler's Formula}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Counterexample to Classical Euler's Formula}
-    In 1813 Lhuilier published an important work. He noticed that Euler's formula was wrong for solids with holes in them.
-\end{frame}
-
-\begin{frame}
-	\frametitle{Counterexample to Classical Euler's Formula}
-	\begin{itemize}[<+->]
-		\item This suggests the existence of a more general version of the Euler's Formula.
-		\item If a solid has g holes, Lhuilier showed that
-		\[
-		    V - E + F = 2 - 2g
-		\]
-		\item The quantity $\mathcal{X}(g) = 2 - 2g$ is called Euler Characteristics.
-		\item This was the first known result on a topological invariant.
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Euler's Theorem}
-    In 1847 Karl Georg Christian von Staut corrected Euler's Theorem.
-    \vspace*{\baselineskip}
-    
-    \begin{theorem}[von Staut]
-        Let $P$ be a polyhedron which satisfies
-        \begin{itemize}{}
-            \item Any two vertices of $P$ can be connected by a chain of edges
-            \item Any loop on $P$ which is made up of straight line segments separates $P$ into two pieces
-        \end{itemize}
-        Then $V - E + F = 2$
-    \end{theorem}
-\end{frame}
-
-\begin{frame}
-    \frametitle{An application!}
-    Suppose you are a designer of soccer balls. Every ball is to be made of $H$ white hexagons and $P$ black pentagons, stitched together with the edges lining up. Suppose that every vertex must join exactly three shapes. Can we find any restrictions on $H$ or $P$?
-\end{frame}
-
-\begin{frame}
-    \frametitle{Lots of definitions}
-    \begin{definition}
-        A $k$-simplex is the $k$-dimensional convex hull of a set of $k+1$ points in $\mathbb{R}^k$
-        \begin{itemize}
-            \item 0-simplex = point
-            \item 1-simplex = line
-            \item 2-simplex = triangle
-            \item 3-simplex = tetrahedron
-            \item 4-simplex = ``5 cell'', 4-dimensional object bounded by 5 tetrahedrons
-        \end{itemize}
-    \end{definition}
-    \begin{definition}
-        An $m$-face of an $n$-simplex where $m < n$ is the convex hull of $m+1$ points chosen from the $n+1$ points defining the $n$-simplex.
-    \end{definition}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Lots of definitions}
-    \begin{columns}
-        \column{0.5 \textwidth}
-            \begin{definition}
-                A simplicial complex $\kappa$ is a topology that is a set of simplices satisfying
-                \begin{itemize}
-                    \item Any face of a simplex in $\kappa$ is also in $\kappa$
-                    \item For any two simplices $\sigma_1, \sigma_2 \in \kappa$, either $\sigma_1 \cap \sigma_2 = \emptyset$ or $\sigma_1 \cap \sigma_2$ is a face of both $\sigma_1$ and $\sigma_2$
-                \end{itemize}
-            \end{definition}
-        \column{0.5 \textwidth}
-    \end{columns}
-
-\end{frame}
-\begin{frame}
-    \frametitle{Even more definitions}
-    \begin{definition}
-        A triangulation of a topological space $X$ is a simplicial complex $\kappa$ and a homeomorphism $h: \kappa \rightarrow X$
-    \end{definition}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Back to the Euler Characteristic}
-    \begin{definition}
-        Given a space $X$ with a triangulation $(\kappa, h)$ where $\kappa$ has finite faces $\sigma_\alpha$, the Euler characteristic of $X$ is defined as $$\chi(X)=\sum_{\alpha}(-1)^{dim(\sigma_\alpha)}$$
-    \end{definition}
-    \begin{itemize}
-        \item This quantity is independent of the triangularization of $X$
-        \item If $X$ is a polyhedron, this definition is equivalent to $\chi(X) = V - E + F$
-    \end{itemize}
-\end{frame}
-
-%% Here comes the CW-Complex
-\begin{frame}
-	\frametitle{Here comes the CW-Complex}
-	\begin{definition}[CW-Complex]
-		We construct the space with the following procedures. 
-		\begin{enumerate}
-			\item Start with a discrete set $X_0$ , whose points are regarded as 0-cells.
-			\item Inductively, form the n-skeleton $X^n$ from $X^{n - 1}$ by attaching n-cells $e^n_\alpha$ via maps $\phi_\alpha: S^{n-1} \to X^{n-1}$. This means that $X^n$ is the quotient space of the disjoint union $X^{n-1} \sqcup_\alpha D^n_\alpha$ of $X^{n-1}$ with a collection of n-disks under the identifications $x ~ \phi_\alpha(x)$ for $x \in \partial D^n_\alpha$.
-		\end{enumerate}
-	\end{definition}
-	Forget the formal definitions. Let's have a look at what it means.
-\end{frame}
-
-\begin{frame}
-	\frametitle{Everything is CW-Complex}
-	\begin{theorem}[CW-Approximation Theorem]
-		If $X$ is any space, then there is a CW-complex $Y$ and a map $f:Y \to X$ inducing isomorphisms on all homotopy, homology, and cohomology groups.
-	\end{theorem}
-	Everything is just a conglomeration of CW-complexes!
-\end{frame}
-
-%% Gauss-Bonnet slides starting here
-\begin{frame}
-	\frametitle{Gauss-Bonnet Theorem}
-	\begin{theorem}[Classical Gauss-Bonnet Theorem]
-		For $M$ a compact smooth oriented surface in $\mathbb{R}^3$, the integral of Gauss Curvature with respect to area on M equals
-		\[
-			\int_M \kappa dA = 2\pi \mathcal{X}(M)
-		\]
-	\end{theorem}
-	\pause
-	\begin{theorem}[Gauss-Bonnet Theorem in Simplex]
-		\[
-			\int_M d\kappa = \int_{M^(0)} d\kappa + \int_{M^(1)} d\kappa + \int_{M^(2)} d\kappa = 2\pi \mathcal{X}(M)
-		\]
-		where $M^{(n)}$ denotes the n-cell of $M$.
-	\end{theorem}
-	\pause
-	What does these all mean?
-\end{frame}
-
-%% Descartes Total Angular Defect
-\begin{frame}
-	\frametitle{Curvature in 0-Cell}
-	In 0-cell vertex, the curvature $\kappa$ is simply the angular defect on that vertex.
-	\begin{definition}[Angular Defect]
-		The angular defect of a vertex is the difference between the sum of face angles $A_i$ at a polyhedron vertex of a polyhedron and $2 \pi$,
-		\[
-			\delta = 2 \pi - \sum_i A_i
-		\]
-	\end{definition}
-	\begin{theorem}[Descartes Total Angular Defect]
-		The total angular defect $\Delta$ is the sum of the angular defects over all polyhedron vertices of a polyhedron
-		\[
-			\Delta = \sum_i \delta_i = 4 \pi
-		\]
-	\end{theorem}
-\end{frame}
-
-\begin{frame}{Gauss-Bonnet}
-    \frametitle{A dip into Differential Geometry}
-    \begin{columns}
-    	\column{0.5 \textwidth}
-    		What is the sum of the external angles of a polygon?
-    	\column{0.5 \textwidth}
-    		\pause
-    		And what is the sum of the angles of the normal-bounded sectors?
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Gauss-Bonnet}
-    \frametitle{Curvature in 1-Cell}
-    \begin{definition}[Curvature]
-    	The \textbf{curvature} of a plane curve at a point is
-    	\[
-    		\frac{d\theta}{ds} = \lim_{\Delta x \to 0} \Big( \frac{\Delta \theta}{\Delta s} \Big)
-    	\]
-    	where $\Delta \theta$ is the angle between the tangents at points separated by an arc of the curve of length $\Delta s$.
-    \end{definition}
-    \vspace{\baselineskip}
-    \begin{columns}
-    	\column{0.5 \textwidth}
-    	\pause
-		\column{0.5 \textwidth}
-		\pause
-			It follows from this definition that $\int_C \kappa ds = 2 \pi$ for a simple closed curve C
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Gauss-Bonnet}
-    \frametitle{A dip into Differential Geometry}
-    \begin{definition}
-    	The \textbf{exterior solid angle} at each vertex P is the (area of the) sector of a unit ball bounded by planes normal to the edges at P
-    \end{definition}
-    \pause
-    The second method can be extended from polygon to polyhedra, by replacing the normal bounded sector with exterior solid angle.
-    \pause
-\end{frame}
-
-\begin{frame}
-	\frametitle{Curvature in 2-cell}
+	\end{examples}
 	\begin{theorem}
-		Let $S$ be a smooth closed convex surface. Then
-		\[
-			\iint_S \kappa_1 \kappa_2 dA = 4 \pi
-		\]
-		where $\kappa_1 \kappa_2$ is the Gaussian Curvature.
+	A polynomial is solvable by radicals if and only if its ``Galois group'' is solvable.
 	\end{theorem}
-	\begin{columns}
-    	\column{0.5 \textwidth}
-    	\pause
-    	    The surface can be imagined as a polyhedra with infinitely many partitions.
-		\column{0.5 \textwidth}
-		\pause
-    \end{columns}
 \end{frame}
 
-%% Poincare-Hopf Theorem
 \begin{frame}
-    \frametitle{From topology to analysis}
-    \begin{theorem}[Poincare-Hopf]
-        Let $v$ be a vector field on $M$, where $M$ is without boundary, which also only has isolated zeros. Then the sum of the indices of the zeros of the vector field is equal to the Euler characteristic of the manifold.
-    \end{theorem}
-    \begin{itemize}
-        \item First by Poincare, 1885, expanded by Hopf, 1926.
-        \item Relates a purely topological concept (Euler characteristic) to a purely analytical concept (index of a vector field).\cite{dummit}
-    \end{itemize}
+	\frametitle{Classification of Abelian Finite Simple Groups}
+	\begin{theorem}
+	A finite abelian group $G$ is simple if and only if $G \cong \mathbb{Z}_p$ for some prime $p$.
+	\end{theorem}
+	\begin{proof}
+	By LaGrange's Theorem, $\mathbb{Z}_p$ is simple. By the Fundamental Theorem of Finite Abelian Groups, $G \cong \mathbb{Z}_{{p_1}^{e_1}} \times ... \times \mathbb{Z}_{{p_k}^{e_k}}$. If $k > 1$, $G$ has a normal subgroup isomorphic to $\mathbb{Z}_{{p_1}^{e_1}}$. If $k = 1$ and $e_1 > 1$, $G$ has a normal subgroup isomorphic to $\mathbb{Z}_{{p_1}}$.
+	\end{proof}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Conjugate Subgroups}
+	\begin{definition}
+	For subgroups $H_1$ and $H_2$ of $G$, $H_1$ is conjugate to $H_2$ if there exists a $g \in G$ such that $g H_1 g^{-1} = H_2$.
+	\end{definition}
+		\begin{theorem}
+	If $H \le G$, $H$ is normal if and only if $H$ has no conjugates in $G$.
+	\end{theorem}
+	\begin{proof}
+		\begin{enumerate}
+			\item[$\Rightarrow$]
+			Let $H \triangleleft G$. Then $\forall g \in G$, $g H g^{-1} = H$, so $H$ has no conjugates.
+			\item[$\Leftarrow$]
+			Let $H_1 \ntriangleleft G$. Then $\exists g \in G$ such that $g H_1 g^{-1} \ne H_1$. Let $H_2 = \{g h g^{-1} | h \in H_1\}$. Consider $g h_1 g^{-1}, g h_2 g^{-1} \in H_2$. Then $g h_1 g^{-1} (g h_2 g^{-1})^{-1} = g (h_1 h_2^{-1}) g^{-1} \in H_2$. So $H_2 \le G$ by the 1 Step Subgroup Test. So $H_1$ is conjugate to $H_2$ and $H_1 \ne H_2$.
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Sylow Theorems}
+	\begin{theorem}[Sylow Theorems \cite{wilson}, 1872]
+	If $G$ is a finite group of order $p^k n$, $p$ prime and $p \nmid n$, then
+	\begin{enumerate}
+		\item $G$ has $s_p \ge 1$ subgroups of order $p^k$, called Sylow $p$-subgroups
+		\item The Sylow $p$-subgroups are all conjugate
+		\item $s_p \mid m$ and $s_p \equiv 1 \mod p$	
+	\end{enumerate}
+	\end{theorem}
+	\begin{example}
+	If $s_p = 1$ then the Sylow $p$-subgroup is normal so $G$ is not simple.
+	\end{example}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Feit-Thompson Theorem}
+	\begin{theorem}[Feit-Thompson Theorem \cite{wilson}, 1962]
+	Every finite group of odd order is solvable.
+	\end{theorem}
+	\begin{corollary}
+	Every nonabelian finite simple group has even order.
+	\end{corollary}
+\end{frame}
+
+\begin{frame}
+	\frametitle{The Classification Theorem for Finite Simple Groups \cite{wilson}}
+	\begin{theorem}[The Classification Theorem for Finite Simple Groups \cite{wilson}, 2004]
+	Every finite simple group is isomorphic to one of the following:
+	\begin{itemize}
+	\item
+	The cyclic groups $\mathbb{Z}_p$ for prime $p$
+	\item
+	The alternating groups $A_n$ for $n \ge 5$
+	\item
+	The classical groups of Lie type
+	\item
+	The exceptional groups of Lie type or the Tits group ${}^2F_4(2)'$
+	\item
+	26 sporadic finite simple groups		
+	\end{itemize}
+	\end{theorem}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Classical Groups of Lie Type}
+	For a prime-power $q$,
+		\begin{itemize}
+		\item
+		Linear: $PSL_n(q)$, $n \ge 2$, except $PSL_2(2)$ and $PSL_2(3)$
+		\item
+		Unitary: $PSU_n(q)$, $n \ge 3$, except $PSU_3(2)$
+		\item
+		Symplectic: $PSp_{2n}(q)$, $n \ge 2$, except $PSp_4(2)$
+		\item
+		Orthogonal:
+		\begin{itemize}
+			\item
+			$P\Omega_{2n+1}(q)$, $n \ge 3$, $q$ odd
+			\item
+			$P\Omega^+_{2n}(q)$, $n \ge 4$
+			\item
+			$P\Omega^-_{2n}(q)$, $n \ge 4$
+		\end{itemize}
+	\end{itemize}
+	\begin{example}
+		$PSL_n(q) = SL_n(q) / Z$ where $SL_n(q)$ is the group of $n \times n$ matrices with entries from the finite field $\mathbb{F}_q$ with determinant 1 and $Z$ is the subgroup of $SL_n(q)$ that are scalar multiples of the identity \cite{wilson}.
+	\end{example}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exceptional Groups of Lie Type}
+	For a prime-power $q$,
+	\begin{multicols}{2}
+	\begin{itemize}
+		\item $G_2(q)$, $q \ge 3$ ;
+		\item $F_4(q)$;
+		\item $E_6(q)$;
+		\item ${}^2E_6(q)$;
+		\item ${}^3D_4(q)$;
+		\item $E_7(q)$;
+		\item $E_8(q)$
+		\item ${}^2B_2(2^{2n+1})$, $n \ge 1$;
+		\item ${}^2G_2(3^{2n+1})$, $n \ge 1$;
+		\item ${}^2F_4(2^{2n+1})$, $n \ge 1$
+	\end{itemize}
+	\end{multicols}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Sporadic Finite Simple Groups}
+	\begin{itemize}
+		\item
+		The Mathieu groups $M_{11}, M_{12}, M_{22}, M_{23}, M_{24}$
+		\item
+		The Leech lattice groups $Co_1, Co_2, Co_3, McL, HS, Suz, J_2$
+		\item
+		The Fischer groups $Fi_{22}, Fi_{23}, Fi'_{24}$
+		\item
+		The monstrous groups $\mathbb{M}, \mathbb{B}, Th, HB, He$
+		\item
+		The pariahs $J_1, J_3, J_4, O'N, Ly, Ru$.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Sporadic Finite Simple Groups}
+	\begin{definition}
+		If $G$ is a group and $N \triangleleft H \le G$, then $H / N$ is called a subquotient of $G$ \cite{dummit}.
+	\end{definition}
+	\begin{figure}
+		\centering
+		\includegraphics[height=140pt,keepaspectratio]{monstergroupdiagram}
+		\caption{Subquotient diagram of sporadic finite simple groups \cite{monsterdiagram}}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
